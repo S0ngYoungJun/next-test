@@ -20,9 +20,12 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         // 로그인 성공
-        const { token } = data;
-        sessionStorage.setItem('token', token);
+        const { token, name } = data;
+        localStorage.setItem('token', token);
+        sessionStorage.setItem('name', name); // 사용자 이름 세션에 저장
         console.log('로그인 성공');
+
+        window.location.href = '/';
       } else {
         // 로그인 실패
         console.error('로그인 실패:', data.error);

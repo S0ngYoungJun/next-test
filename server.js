@@ -78,7 +78,7 @@ app.prepare().then(() => {
           if (password === user.password) {
             // 로그인 성공
             // 여기에서 토큰 발급 등 로그인 성공 시 필요한 로직 수행
-            const token = jwt.sign({ userId }, secretKey, { expiresIn: '1h' });
+            const token = jwt.sign({ userId, name: user.name }, secretKey, { expiresIn: '1h' });
             res.status(200).json({ token });
           } else {
             // 비밀번호가 일치하지 않음
